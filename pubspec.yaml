@@ -58,6 +58,7 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   retrofit_generator:
   floor_generator:
+  json_serializable:
   build_runner:
 
 # For information on the generic Dart part of this file, see the

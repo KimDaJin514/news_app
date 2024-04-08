@@ -12,7 +12,7 @@ class ArticleModel extends ArticleEntity {
     String? content,
   });
 
-  factory ArticleModel.fromJson(Map<dynamic, String> map) => ArticleModel(
+  factory ArticleModel.fromJson(Map<String, dynamic> map) => ArticleModel(
       id : map['id'] ?? '',
       author : map['author'],
       title : map['title'],
