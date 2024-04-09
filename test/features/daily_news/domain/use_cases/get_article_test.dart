@@ -6,7 +6,7 @@ import 'package:news_app/core/resources/data_state.dart';
 import 'package:news_app/features/daily_news/data/models/article.dart';
 import 'package:news_app/features/daily_news/domain/entities/article.dart';
 import 'package:news_app/features/daily_news/domain/repositories/article_repository.dart';
-import 'package:news_app/features/daily_news/domain/use_cases/get_article.dart';
+import 'package:news_app/features/daily_news/domain/use_cases/get_article_use_case.dart';
 
 import 'get_article_test.mocks.dart';
 
