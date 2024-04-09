@@ -9,7 +9,6 @@ import 'package:news_app/features/daily_news/domain/repositories/article_reposit
 
 class ArticleRepositoryImpl implements ArticleRepository {
   final NewsApiService _newsApiService;
-
   ArticleRepositoryImpl(this._newsApiService);
 
   @override
