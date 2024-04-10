@@ -1,3 +1,4 @@
+import 'package:news_app/core/constants/constants.dart';
 import 'package:news_app/features/daily_news/domain/entities/article.dart';
 import 'package:floor/floor.dart';
 
@@ -19,7 +20,7 @@ class ArticleModel extends ArticleEntity{
     title : json['title'].toString() ?? 'null',
     description : json['description'] ?? 'null',
     url : json['url'] ?? 'null',
-    urlToImage : json['urlToImage'] ?? 'null',
+    urlToImage: json['urlToImage'] != null && json['urlToImage'] != "" ? json['urlToImage'] : defaultImage,
     publishedAt : json['publishedAt'] ?? 'null',
     content : json['content'] ?? 'null',
   );
