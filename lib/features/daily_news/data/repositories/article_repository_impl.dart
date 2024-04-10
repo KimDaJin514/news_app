@@ -10,31 +10,27 @@ import 'package:news_app/features/daily_news/domain/repositories/article_reposit
 
 class ArticleRepositoryImpl implements ArticleRepository {
   final NewsApiService _newsApiService;
+
   ArticleRepositoryImpl(this._newsApiService);
 
   @override
   Future<DataState<List<ArticleModel>>> getNewsArticles() async {
     try {
       final httpResponse = await _newsApiService.getNewsArticles(
-        apiKey: newsApiKey,
-        country: countryQuery,
-        category: categoryQuery
-      );
-
+          apiKey: newsApiKey, country: countryQuery, category: categoryQuery);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data);
       } else {
-        return DataFailed(DioException(
-            error: httpResponse.response.statusMessage,
-            response: httpResponse.response,
-            type: DioExceptionType.badResponse,
-            requestOptions: httpResponse.response.requestOptions
-        ));
+        return DataFailed(
+          DioException(
+          error: httpResponse.response.statusMessage,
+          response: httpResponse.response,
+          type: DioExceptionType.badResponse,
+          requestOptions: httpResponse.response.requestOptions)
+        );
       }
     } on DioException catch (e) {
       return DataFailed(e);
     }
-
   }
-
 }

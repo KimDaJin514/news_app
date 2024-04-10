@@ -1,7 +1,7 @@
-import 'dart:convert';
-
 import 'package:news_app/features/daily_news/domain/entities/article.dart';
+import 'package:floor/floor.dart';
 
+@Entity(tableName: 'article', primaryKeys: ['id'])
 class ArticleModel extends ArticleEntity{
   const ArticleModel({
     super.id,

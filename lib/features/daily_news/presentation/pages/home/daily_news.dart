@@ -25,6 +25,7 @@ class DailyNews extends StatelessWidget {
             );
           }
           if (state is RemoteArticlesError) {
+            print('error : ${state.error!.message}');
             return const Center(
               child: Icon(Icons.refresh),
             );
