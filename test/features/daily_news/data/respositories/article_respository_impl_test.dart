@@ -21,7 +21,7 @@ void main(){
 
   final List<ArticleEntity> tArticleList = [
     const ArticleEntity(
-      id: "the-times-of-india",
+      id: 1,
       author: 'a',
       title: 't',
       description: 'd',
@@ -31,7 +31,7 @@ void main(){
       content: 'd',
     ),
     const ArticleEntity(
-      id: "the-times-of-india",
+      id: 2,
       author: 'a',
       title: 't',
       description: 'd',

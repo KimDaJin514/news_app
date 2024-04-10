@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:news_app/core/constants/constants.dart';
 import 'package:news_app/core/resources/data_state.dart';
 import 'package:news_app/features/daily_news/data/data_source/remote/news_api_service.dart';
+import 'package:news_app/features/daily_news/data/models/article.dart';
 import 'package:news_app/features/daily_news/domain/entities/article.dart';
 import 'package:news_app/features/daily_news/domain/repositories/article_repository.dart';
 
@@ -12,12 +13,12 @@ class ArticleRepositoryImpl implements ArticleRepository {
   ArticleRepositoryImpl(this._newsApiService);
 
   @override
-  Future<DataState<List<ArticleEntity>>> getNewsArticles() async {
+  Future<DataState<List<ArticleModel>>> getNewsArticles() async {
     try {
       final httpResponse = await _newsApiService.getNewsArticles(
-          apiKey: newsApiKey,
-          country: countryQuery,
-          category: categoryQuery
+        apiKey: newsApiKey,
+        country: countryQuery,
+        category: categoryQuery
       );
 
       if (httpResponse.response.statusCode == HttpStatus.ok) {
@@ -33,7 +34,7 @@ class ArticleRepositoryImpl implements ArticleRepository {
     } on DioException catch (e) {
       return DataFailed(e);
     }
-    
+
   }
 
 }

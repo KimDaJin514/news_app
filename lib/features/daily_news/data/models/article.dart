@@ -1,38 +1,41 @@
+import 'dart:convert';
+
 import 'package:news_app/features/daily_news/domain/entities/article.dart';
 
-class ArticleModel extends ArticleEntity {
+class ArticleModel extends ArticleEntity{
   const ArticleModel({
-    String? id,
-    String? author,
-    String? title,
-    String? description,
-    String? url,
-    String? urlToImage,
-    String? publishedAt,
-    String? content,
+    super.id,
+    super.author,
+    super.title,
+    super.description,
+    super.url,
+    super.urlToImage,
+    super.publishedAt,
+    super.content,
   });
 
-  factory ArticleModel.fromJson(Map<String, dynamic> map) => ArticleModel(
-      id : map['id'] ?? '',
-      author : map['author'],
-      title : map['title'],
-      description : map['description'],
-      url : map['url'],
-      urlToImage : map['urlToImage'],
-      publishedAt : map['publishedAt'],
-      content : map['content'],
-    );
+  factory ArticleModel.fromJson(Map<String, dynamic> json) => ArticleModel(
+    author : json['author'] ?? 'null',
+    title : json['title'].toString() ?? 'null',
+    description : json['description'] ?? 'null',
+    url : json['url'] ?? 'null',
+    urlToImage : json['urlToImage'] ?? 'null',
+    publishedAt : json['publishedAt'] ?? 'null',
+    content : json['content'] ?? 'null',
+  );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['author'] = author;
-    map['title'] = title;
-    map['description'] = description;
-    map['url'] = url;
-    map['urlToImage'] = urlToImage;
-    map['publishedAt'] = publishedAt;
-    map['content'] = content;
-    return map;
+  factory ArticleModel.fromEntity(ArticleEntity entity) {
+    return ArticleModel(
+      id: entity.id,
+      author: entity.author,
+      title: entity.title,
+      description: entity.description,
+      url: entity.url,
+      urlToImage: entity.urlToImage,
+      publishedAt: entity.publishedAt,
+      content: entity.content
+    );
   }
 }
+
+
