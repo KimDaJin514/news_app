@@ -33,7 +33,7 @@ class LocalArticleBloc extends Bloc<LocalArticleEvent, LocalArticleState> {
   }
 
   void onSaveArticles(SaveArticle saveArticle, Emitter<LocalArticleState> emit) async{
-    await _removeArticleUseCase(params: saveArticle.article);
+    await _saveArticleUseCase(params: saveArticle.article);
     final articles = await _getSavedArticleUseCase();
     emit(LocalArticlesDone(articles));
   }
